@@ -11,6 +11,7 @@ def index():
     return render_template('index.html.j2')
 
 @main.route('/mytasks', methods = ['GET'])
+@login_required
 def mytasks():
     t = Task.query.filter_by(user_id = current_user.id).all()
     print(t)
@@ -26,11 +27,9 @@ def deletetask(id):
     else:
         flash('You do not have access to do that')
     return redirect(url_for('main.mytasks'))
-
-
-    
     
 @main.route('/newtask', methods=['GET', 'POST'])
+@login_required
 def new_task():
     if request.method == 'POST':
         type = request.form.get('type')

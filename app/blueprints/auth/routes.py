@@ -54,8 +54,6 @@ def register():
         return redirect(url_for('auth.login')) 
     return render_template('register.html.j2', form = form) 
 
-
-
 @auth.route('/edit_profile', methods=['GET','POST'])
 @login_required
 def edit_profile():
