@@ -36,7 +36,6 @@ def new_task():
         url = f'http://www.boredapi.com/api/activity?type={type}'
         response = requests.get(url)
         if response.ok:
-            
             if not response.json()["activity"]:
                  error_string="We had an error loading your data likely the year or round is not in the database"
                  return render_template('newtask.html.j2', error = error_string)
