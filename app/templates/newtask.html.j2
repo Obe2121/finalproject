@@ -1,0 +1,50 @@
+{% extends 'base.html.j2' %}
+{% block title %}
+New Task Search
+{% endblock %}
+
+{% block content %}
+    <h1>New Task</h1>
+    <form method="POST" action="/newtask">
+    <div class="mb-3">
+        <label for="type" class="form-label">Activity Type</label>
+        <input type="text" name="type" class="form-control" id="type">
+    </div>
+
+    <button type="submit" class="btn btn-primary">New Task</button>
+    </form>
+    <br>
+    {% if activities %}
+        <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+            <th scope="row">Activity</th>
+            <th scope="row">Type</th>
+            <th scope="row">Participants</th>
+            <th scope="row">Price</th>
+            <th scope="row">Link</th>
+            <th scope="row">Key</th>
+            <th scope="row">Accessibility</th>
+
+            </tr> 
+        </thead>
+        <tbody>
+            {% for activity in activities %}
+                <tr>
+                    <th scope="row">{{activity.activity}}</th>
+                    <td>{{activity.type}}</td>
+                    <td>{{activity.participants}}</td>
+                    <td>{{activity.price}}</td>      
+                    <td>{{activity.link}}</td>
+                    <td>{{activity.key}}</td>
+                    <td>{{activity.accessibility}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    {% else %}
+    Enter the type of task you would like to search for
+    {% endif %}
+
+
+{% endblock %}

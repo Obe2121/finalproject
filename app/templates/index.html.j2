@@ -1,0 +1,15 @@
+{% extends 'base.html.j2' %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
+
+{% block title %}
+ Achieve.
+{% endblock %}
+
+{% block content %}
+
+  <img style="max-width:100%" src="{{url_for('static', filename='./images/achieve.jpg')}}">
+
+{% endblock %}
